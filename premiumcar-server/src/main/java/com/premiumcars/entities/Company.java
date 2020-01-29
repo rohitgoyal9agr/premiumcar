@@ -1,25 +1,20 @@
 package com.premiumcars.entities;
 
-import java.sql.Blob;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name="car_image")
-public class CarImage {
+@Table(name="company")
+public class Company {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer imageId;
+	private int companyId;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Car car;
-	
-	private Blob picture;
-}
+	private String companyName;
+	}
+

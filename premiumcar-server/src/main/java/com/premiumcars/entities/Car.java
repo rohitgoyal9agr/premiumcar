@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,24 +19,25 @@ import javax.persistence.Table;
 public class Car {
 
 	@Id
-	@GeneratedValue
-	private int carNumber;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer carNumber;
 
-	private String carMaker;
+	@OneToOne(fetch = FetchType.LAZY)
+	private Company carMaker;
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "car_model_id")
 	private CarModel carModel;
 
-	private int manufacturingYear;
-	private int pastRunInKm;
-	private int expectedPrice;
+	private Integer manufacturingYear;
+	private Integer pastRunInKm;
+	private Integer expectedPrice;
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "city_id")
 	private City city;
 
-	private int fuelEfficency;
+	private Integer fuelEfficency;
 	private String engineNumber;
 	private String chesisNumber;
 
@@ -54,14 +56,6 @@ public class Car {
 
 	public void setCarNumber(int carNumber) {
 		this.carNumber = carNumber;
-	}
-
-	public String getCarMaker() {
-		return carMaker;
-	}
-
-	public void setCarMaker(String carMaker) {
-		this.carMaker = carMaker;
 	}
 
 	public CarModel getCarModel() {

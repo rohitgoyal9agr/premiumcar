@@ -19,7 +19,7 @@ public class Ownership {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int ownerId;
+	private Integer ownerId;
 	
 	private String ownerName;
 	private String ownerType; //FirstOwner or secondOwner
