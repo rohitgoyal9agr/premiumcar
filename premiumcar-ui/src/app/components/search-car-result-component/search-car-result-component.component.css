@@ -1,0 +1,78 @@
+.filterDiv{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+}
+
+.shadow {
+    padding-top: 16px;
+    padding-bottom: 0;
+    margin-bottom: 8px;
+    padding: 16px 0;
+    box-shadow: 0 1px 3px rgba(36,39,44,.15);
+    border-radius: 2px;
+    background: #fff;
+}
+
+.carListing {
+    padding-top: 24px;
+    padding-bottom: 40px;
+    width: 98%;
+    max-width: 1280px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.accordion {
+    display: inline-block;
+    width: 100%;
+}
+
+.borderBottom {
+    padding: 0 16px;
+}
+
+.accordion h3 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #24272c;
+    text-transform: inherit;
+    width: 100%;
+    line-height: 56px;
+    padding: 0;
+}
+
+.searchModel.content.on {
+    margin: -7px 0 12px;
+    padding-top: 7px;
+}
+
+.brandSearch {
+    max-height: 208px;
+    overflow-y: scroll;
+    margin: 18px 0 11px;
+}
+
+.prices{
+    overflow: hidden;
+}
+
+.bodyTypes{
+    overflow: hidden;
+}
+
+.fuelTypes{
+    overflow: hidden;
+}
+
+.mileage{
+    overflow: hidden;
+}
+
+.seating{
+    overflow: hidden;
+}
