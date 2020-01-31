@@ -1,5 +1,7 @@
 package com.premiumcars.entities;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,10 +27,9 @@ public class Varient {
 	private String transmissionType;
 	private String fuelType;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "spec_id")
-	private Specification spec;
+	@OneToMany(mappedBy = "varient", fetch = FetchType.LAZY)
+	private List<Specification> spec;
 	
-	@OneToOne(mappedBy = "varient", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.LAZY)
 	private CarModel carModel;
 }

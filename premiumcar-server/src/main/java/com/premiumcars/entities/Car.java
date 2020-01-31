@@ -1,5 +1,6 @@
 package com.premiumcars.entities;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -23,22 +24,21 @@ public class Car {
 	private Integer carNumber;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	private Company carMaker;
-
-	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "car_model_id")
 	private CarModel carModel;
 
-	private Integer manufacturingYear;
+	private String manufacturingYear;
 	private Integer pastRunInKm;
-	private Integer expectedPrice;
+	private BigDecimal expectedPrice;
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "city_id")
 	private City city;
 
 	private Integer fuelEfficency;
+
 	private String engineNumber;
+
 	private String chesisNumber;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -50,11 +50,11 @@ public class Car {
 	@OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
 	private List<CarImage> carImage;
 
-	public int getCarNumber() {
+	public Integer getCarNumber() {
 		return carNumber;
 	}
 
-	public void setCarNumber(int carNumber) {
+	public void setCarNumber(Integer carNumber) {
 		this.carNumber = carNumber;
 	}
 
@@ -66,12 +66,28 @@ public class Car {
 		this.carModel = carModel;
 	}
 
-	public int getManufacturingYear() {
+	public String getManufacturingYear() {
 		return manufacturingYear;
 	}
 
-	public void setManufacturingYear(int manufacturingYear) {
+	public void setManufacturingYear(String manufacturingYear) {
 		this.manufacturingYear = manufacturingYear;
+	}
+
+	public Integer getPastRunInKm() {
+		return pastRunInKm;
+	}
+
+	public void setPastRunInKm(Integer pastRunInKm) {
+		this.pastRunInKm = pastRunInKm;
+	}
+
+	public BigDecimal getExpectedPrice() {
+		return expectedPrice;
+	}
+
+	public void setExpectedPrice(BigDecimal expectedPrice) {
+		this.expectedPrice = expectedPrice;
 	}
 
 	public City getCity() {
@@ -82,11 +98,11 @@ public class Car {
 		this.city = city;
 	}
 
-	public int getFuelEfficency() {
+	public Integer getFuelEfficency() {
 		return fuelEfficency;
 	}
 
-	public void setFuelEfficency(int fuelEfficency) {
+	public void setFuelEfficency(Integer fuelEfficency) {
 		this.fuelEfficency = fuelEfficency;
 	}
 

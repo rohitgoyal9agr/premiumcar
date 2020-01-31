@@ -1,6 +1,7 @@
 package com.premiumcars.entities;
 
 import java.sql.Blob;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -18,18 +20,53 @@ public class CarModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int carModelId;
+	private Integer carModelId;
 	
 	private String carMaker;
 	private String modelName;
 	private String carType;
-	private Blob modelImage;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "varient_id")
-	private Varient varient;
-	
-	@OneToOne(mappedBy = "carModel", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-	private Car car;
+	@OneToMany(mappedBy = "carModel" , fetch = FetchType.LAZY)
+	private List<Varient> varient;
+
+	public Integer getCarModelId() {
+		return carModelId;
+	}
+
+	public void setCarModelId(Integer carModelId) {
+		this.carModelId = carModelId;
+	}
+
+	public String getCarMaker() {
+		return carMaker;
+	}
+
+	public void setCarMaker(String carMaker) {
+		this.carMaker = carMaker;
+	}
+
+	public String getModelName() {
+		return modelName;
+	}
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+
+	public String getCarType() {
+		return carType;
+	}
+
+	public void setCarType(String carType) {
+		this.carType = carType;
+	}
+
+	public List<Varient> getVarient() {
+		return varient;
+	}
+
+	public void setVarient(List<Varient> varient) {
+		this.varient = varient;
+	}
 	
 }

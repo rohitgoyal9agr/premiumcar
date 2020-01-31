@@ -2,7 +2,10 @@ package com.premiumcars.entities;
 
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,8 +25,13 @@ public class Ownership {
 	private Integer ownerId;
 	
 	private String ownerName;
-	private String ownerType; //FirstOwner or secondOwner
+	
+    @Enumerated(EnumType.STRING)
+    @Column(length = 20)
+    private OwnerType ownerType;
+	
 	private String ownerAddLin1;
+	
 	private String ownerAddLin2;
 	
 	@OneToOne(fetch = FetchType.LAZY)
@@ -46,12 +54,7 @@ public class Ownership {
 	public void setOwnerName(String ownerName) {
 		this.ownerName = ownerName;
 	}
-	public String getOwnerType() {
-		return ownerType;
-	}
-	public void setOwnerType(String ownerType) {
-		this.ownerType = ownerType;
-	}
+	
 	public String getOwnerAddLin1() {
 		return ownerAddLin1;
 	}

@@ -34,9 +34,6 @@ public class User {
 	
 	private int pinCode;
 	
-	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-	private List<Car> car;
-	
 	public int getUserId() {
 		return userId;
 	}
