@@ -16,8 +16,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 @Entity
 @Table(name="ownership")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Ownership {
 
 	@Id
@@ -26,10 +29,44 @@ public class Ownership {
 	
 	private String ownerName;
 	
-    @Enumerated(EnumType.STRING)
-    @Column(length = 20)
-    private OwnerType ownerType;
+    private String ownerType;
 	
+	public City getCity() {
+		return city;
+	}
+	
+	
+	public Ownership() {
+		super();
+	}
+
+
+	public String getOwnerType() {
+		return ownerType;
+	}
+
+
+	public void setOwnerType(String ownerType) {
+		this.ownerType = ownerType;
+	}
+
+
+	public Ownership(String ownerType) {
+		super();
+		this.ownerType = ownerType;
+	}
+	public void setCity(City city) {
+		this.city = city;
+	}
+	public List<Car> getCar() {
+		return car;
+	}
+	public void setCar(List<Car> car) {
+		this.car = car;
+	}
+	public void setOwnerId(Integer ownerId) {
+		this.ownerId = ownerId;
+	}
 	private String ownerAddLin1;
 	
 	private String ownerAddLin2;

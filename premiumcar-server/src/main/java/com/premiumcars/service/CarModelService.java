@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import com.premiumcars.entities.City;
+import com.premiumcars.entities.Ownership;
+import com.premiumcars.modal.DropDown;
 import com.premiumcars.modal.DropDownlist;
 import com.premiumcars.repository.CarModelRepository;
 
@@ -17,20 +20,31 @@ public class CarModelService {
 	private CarModelRepository carModelRepository;
 	
 	@Cacheable
-	public List<DropDownlist> getDropDownList() {
+	public DropDownlist getDropDownList() {
+		DropDownlist dropDownlist = new DropDownlist();
 		
-		List<DropDownlist> response = new ArrayList<DropDownlist>();
+		List<DropDown> response = new ArrayList<DropDown>();
 		
 		List<String> carMakerList = carModelRepository.findDistinctByCarMaker();
 
 		carMakerList.forEach(carMaker -> {
-			DropDownlist dropDownlist = new DropDownlist();
-			dropDownlist.setKey(carMaker);
-			dropDownlist.setData(carModelRepository.findDistinctModelNameByCarMaker(carMaker));
-			response.add(dropDownlist);
+			DropDown dropDown = new DropDown();
+			dropDown.setKey(carMaker);
+			dropDown.setData(carModelRepository.findDistinctModelNameByCarMaker(carMaker));
+			response.add(dropDown);
 		});
 
-		return response;
+		//List<Ownership> ownerships = carModelRepository.findDistinctOwnership();
+
+		List<City> cityList = carModelRepository.findDistinctCities();
+		
+		dropDownlist.setCities(cityList);
+		//dropDownlist.setOwnership(ownerships);
+		dropDownlist.setCarModelsList(response);
+
+		return dropDownlist;
 
 	}
+	
+	
 }
