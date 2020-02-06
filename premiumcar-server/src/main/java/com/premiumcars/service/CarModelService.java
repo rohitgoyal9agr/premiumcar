@@ -26,7 +26,7 @@ public class CarModelService {
 		carMakerList.forEach(carMaker -> {
 			DropDownlist dropDownlist = new DropDownlist();
 			dropDownlist.setKey(carMaker);
-			dropDownlist.setValue(carModelRepository.findDistinctModelNameByCarMaker(carMaker));
+			dropDownlist.setData(carModelRepository.findDistinctModelNameByCarMaker(carMaker));
 			response.add(dropDownlist);
 		});
 

@@ -1,13 +1,11 @@
 package com.premiumcars.modal;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class DropDownlist {
 
 	private String key;
-	private List<String> value;
+	private List<DropDown> data;
 	
 	
 	public String getKey() {
@@ -16,12 +14,13 @@ public class DropDownlist {
 	public void setKey(String key) {
 		this.key = key;
 	}
-	public List<String> getValue() {
-		return value;
+	public List<DropDown> getData() {
+		return data;
 	}
-	public void setValue(List<String> value) {
-		this.value = value;
+	public void setData(List<DropDown> data) {
+		this.data = data;
 	}
+	
 	
 	
 	
