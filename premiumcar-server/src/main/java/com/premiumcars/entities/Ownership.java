@@ -74,8 +74,9 @@ public class Ownership {
 	@OneToMany(mappedBy = "owner",cascade = CascadeType.ALL)
 	private List<Car> car;
 	
-	private int pinCode;
-	public int getOwnerId() {
+	private Integer pinCode;
+	
+	public Integer getOwnerId() {
 		return ownerId;
 	}
 	public void setOwnerId(int ownerId) {
@@ -104,7 +105,7 @@ public class Ownership {
 	public int getPinCode() {
 		return pinCode;
 	}
-	public void setPinCode(int pinCode) {
+	public void setPinCode(Integer pinCode) {
 		this.pinCode = pinCode;
 	}
 	
