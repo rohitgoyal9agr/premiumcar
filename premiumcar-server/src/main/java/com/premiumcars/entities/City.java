@@ -32,6 +32,7 @@ public class City {
 
 	private String state;
 	private String cityName;
+	
 	public Integer getCityId() {
 		return cityId;
 	}
