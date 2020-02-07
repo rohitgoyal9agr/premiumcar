@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.premiumcars.entities.CarModel;
 import com.premiumcars.entities.City;
+import com.premiumcars.entities.OwnerType;
 import com.premiumcars.entities.Ownership;
 import com.premiumcars.modal.DropDown;
 

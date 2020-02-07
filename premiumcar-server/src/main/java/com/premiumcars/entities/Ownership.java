@@ -16,44 +16,40 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
 @Table(name="ownership")
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL) 
 public class Ownership {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonIgnore
 	private Integer ownerId;
 	
 	private String ownerName;
 	
     private String ownerType;
-	
-	public City getCity() {
-		return city;
+    
+	public Ownership(String ownerType) {
+		super();
+		this.ownerType = ownerType;
 	}
-	
 	
 	public Ownership() {
 		super();
 	}
-
-
+	
 	public String getOwnerType() {
 		return ownerType;
 	}
-
-
 	public void setOwnerType(String ownerType) {
 		this.ownerType = ownerType;
 	}
-
-
-	public Ownership(String ownerType) {
-		super();
-		this.ownerType = ownerType;
+	public City getCity() {
+		return city;
 	}
 	public void setCity(City city) {
 		this.city = city;

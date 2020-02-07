@@ -25,12 +25,10 @@ public class City {
 		super();
 	}
 	
-	
 	public City(String cityName) {
 		super();
 		this.cityName = cityName;
 	}
-
 
 	private String state;
 	private String cityName;
