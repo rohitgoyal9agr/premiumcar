@@ -1,0 +1,20 @@
+header .container{
+    max-width: 1170px !important;
+}
+
+header{
+    padding-bottom: 3%;
+}
+
+header ul{
+    display: unset;
+}
+
+.searchbutton{
+    background-color: #fff;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+}
+
+
+
